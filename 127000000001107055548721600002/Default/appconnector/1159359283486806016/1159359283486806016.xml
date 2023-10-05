@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AC_CONNECTOR>
+        <CREATED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></CREATED_GROUP>
+        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <AC_LOGO><![CDATA[pic1.png]]></AC_LOGO>
+        <ID><![CDATA[1159359283486806016]]></ID>
+        <AC_NAME><![CDATA[zohocrmtest]]></AC_NAME>
+        <AC_DESCRIPTION><![CDATA[zohocrm_Test]]></AC_DESCRIPTION>
+        <REVISION><![CDATA[null]]></REVISION>
+        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
+        <CREATION_DATE><![CDATA[2023-10-05T10:49:53]]></CREATION_DATE>
+        <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
+        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
+        <AC_INPUT_SPEC_FILENAME><![CDATA[zohocrm.yml]]></AC_INPUT_SPEC_FILENAME>
+        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
+        <AC_INPUT_SPEC><![CDATA[openapi: 3.0.0
+info:
+  title: "Zoho CRM API"
+  description: "OpenAPI specification for Zoho CRM"
+  version: "1.0"
+  x-adeptia-helpLink: "https://www.zoho.com/crm/developer/docs/api/v5/insert-records.html"
+servers:
+  - url: "https://www.zohoapis.{subDomain}/crm/v2"
+    description: "Zoho CRM URL"
+    x-adeptia-parameters:
+      - name: 'subDomain'
+        label: 'Sub Domain Name'
+        description: 'Enter sub domain name for Zoho CRM.'
+        visible: false
+        fetchFrom: account
+        paramName: 'subDomain'
+security:
+  - "OAuth2":
+      - "ZohoCRM.settings.modules.ALL,ZohoCRM.settings.ALL,ZohoCRM.modules.ALL,ZohoCRM.users.ALL,ZohoCRM.settings.related_lists.ALL"
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      scheme: Bearer
+      flows:
+        authorizationCode:
+          authorizationUrl: "https://accounts.zoho.{subDomain}/oauth/v2/auth?access_type=offline&prompt=consent"
+          tokenUrl: "https://accounts.zoho.{subDomain}/oauth/v2/token?access_type=offline&prompt=consent"
+          scopes:
+            'ZohoCRM.settings.modules.ALL,ZohoCRM.settings.ALL,ZohoCRM.modules.ALL,ZohoCRM.users.ALL': "The Zoho CRM Accounting scope"
+paths:
+  /Leads:
+    get:
+      tags:
+        - Get
+      summary: "Get all the Leads"
+      description: "Get Lead Details."
+      externalDocs:
+        url: 'https://www.zoho.com/crm/developer/docs/api/v5/get-records.html'
+        x-adeptia-help:
+          text: 'Help'
+      x-adeptia-trigger:
+        NewLead:
+          summary: "New Lead"
+          description: "Triggers when a new Lead is created."
+          entityName: "Lead"
+          recordXpath: "data"
+          cursorField: lastModifiedTime
+          paramValues:
+            module: 'Leads'
+          schema:
+            type: object
+            dynamic-schema:
+              operationId: "getLeadsSchema"
+        AllLeads:
+          summary: "All Leads"
+          description: "Retrieves the list of all the Leads."
+          entityName: "Lead"
+          recordXpath: "data"
+          paramValues:
+            module: 'Leads'
+          schema:
+            type: object
+            dynamic-schema:
+              operationId: "getLeadsSchema"
+      parameters:
+        - in: query
+          name: fields
+          description: 'To list all the module records with respect to fields. Note that you can include a maximum of 50 field API names in this parameter.'
+          required: false
+          x-adeptia-visibility:
+            visible: true
+        - in: query
+          name: cvid
+          description: 'To get the list of records based on custom views. Note that you cannot use this param with the "sort_by" param.'
+          required: false
+          x-adeptia-visibility:
+            visible: true
+      responses:
+        '200':
+          description: 'Denotes a successful response.'
+          content:
+            'application/json':
+              schema:
+                x-adeptia-dynamic-schema:
+                  operationId: "getLeadsSchema"
+    post:
+      summary: "Create Leads"
+      description: "Create Leads Operation."
+      externalDocs:
+        url: 'https://www.zoho.com/crm/developer/docs/api/v5/insert-records.html'
+        x-adeptia-help:
+          text: 'Help'
+      x-adeptia-action:
+        'CraeteLead':
+          summary: "Create Lead"
+          description: "Create Lead."
+          entityName: 'Lead'
+          requestRecordXpath: 'data'
+          wrapRecord: true
+          wrapRecordInArray: true
+          paramValues:
+            module: 'Leads'
+          schema:
+            type: object
+            dynamic-schema:
+              operationId: getLeadsSchema
+  /settings/fields:
+    get:
+      summary: "Get Metadata of Lead"
+      operationId: "getLeadsSchema"
+      parameters:
+        - in: 'query'
+          name: 'module'
+          description: 'The Read query.'
+          required: true
+          x-adeptia-visibility:
+            visible: false
+            fetchFrom: triggerOrAction
+            paramName: module
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Denotes a successful response.'
+x-adeptia-extensions:
+  testTrigger: NewLead
+  dateFormat: yyyy-MM-dd'T'HH:mm:ssXXX
+  timeZone: IST
+  externalDocs:
+    url: 'https://www.zoho.com/crm/developer/'
+    x-adeptia-help:
+      text: 'Help'
+  accountParameters:
+    - name: "subDomain"
+      label: 'Sub Domain Name'
+      description: 'Enter sub domain name for Zoho CRM.'
+      visible: true
+  incrementalData:
+    'ModifiedSince':
+      name: 'If-Modified-Since'
+      injectAs: header
+      sinceHeader: Date
+  pagination:
+    'PageIncrement':
+      startFrom: 1
+      pageTokenOption:
+        name: 'page'
+        injectAs: 'query'
+  dynamicSchemaStrategies:
+    'flatFields':
+      fieldsPath: $['fields'][*]
+      nameField: api_name
+      typeField: data_type
+      minOccurrenceField: system_mandatory
+      documentationField: field_label
+      maxLength: length
+      reference:
+        identifier:
+          value: "$[?(@.data_type == 'ownerlookup')]['api_name']"
+          label: "$[?(@.data_type == 'ownerlookup')]['label']"
+        nameField: "$['Last_Name']"
+        idField: "$['id']"
+        recordsPath: "$['data']"
+  errorHandler:
+    maxRetries: 5
+    responseFilter:
+      - statusCode: [429]
+        action: RETRY
+        retryStrategy: 'ConstantBackoff'
+    retryStrategies:
+      'ConstantBackoff':
+        backoffTimeInSeconds: 5]]></AC_INPUT_SPEC>
+        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
+        <AC_DISPLAY_NAME><![CDATA[zohocrm_Test]]></AC_DISPLAY_NAME>
+        <MODIFIED_DATE><![CDATA[2023-10-05T10:49:53]]></MODIFIED_DATE>
+        <SYNCHRONIZED><![CDATA[null]]></SYNCHRONIZED>
+    </AC_CONNECTOR>
+    <columnInfo dbtype="0">
+        <column name="ID" type="-5"/>
+        <column name="AC_DISPLAY_NAME" type="12"/>
+        <column name="AC_NAME" type="12"/>
+        <column name="AC_DESCRIPTION" type="12"/>
+        <column name="AC_ACTIVE" type="-7"/>
+        <column name="AC_LOGO" type="12"/>
+        <column name="AC_INPUT_SPEC" type="-1"/>
+        <column name="CREATION_DATE" type="93"/>
+        <column name="CREATED_BY" type="12"/>
+        <column name="MODIFIED_DATE" type="93"/>
+        <column name="MODIFIED_BY" type="12"/>
+        <column name="AC_INPUT_SPEC_FILENAME" type="12"/>
+        <column name="PROJECT_OWNER" type="12"/>
+        <column name="REVISION" type="12"/>
+        <column name="SYNCHRONIZED" type="-7"/>
+        <column name="CREATED_USER" type="12"/>
+        <column name="CREATED_GROUP" type="12"/>
+        <column name="MODIFIED_USER" type="12"/>
+        <column name="MODIFIED_GROUP" type="12"/>
+    </columnInfo>
+</data>
