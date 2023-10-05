@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AC_OAUTH_CLIENT>
+        <APPLICATION><![CDATA[Connector:1138054142217441280]]></APPLICATION>
+        <DESCRIPTION><![CDATA[zen_OauthClient]]></DESCRIPTION>
+        <NAME><![CDATA[zen_OauthClient]]></NAME>
+        <SCOPE><![CDATA[]]></SCOPE>
+        <CREATED_DATE><![CDATA[2023-10-05T12:04:57]]></CREATED_DATE>
+        <REVISION><![CDATA[null]]></REVISION>
+        <MODIFIED_GROUP><![CDATA[null]]></MODIFIED_GROUP>
+        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <MODIFIED_DATE><![CDATA[2023-10-05T12:04:57]]></MODIFIED_DATE>
+        <CLIENT_ID><![CDATA[zendeskcon]]></CLIENT_ID>
+        <SYNCHRONIZED><![CDATA[null]]></SYNCHRONIZED>
+        <SECRET_ID><![CDATA[0e3347415432c242cf7bf96d69d246022ebf7c4da8201c274d0c38877904eeb3]]></SECRET_ID>
+        <CREATED_USER><![CDATA[null]]></CREATED_USER>
+        <MODIFIED_USER><![CDATA[null]]></MODIFIED_USER>
+        <ID><![CDATA[1159378174384558080]]></ID>
+        <CREATED_GROUP><![CDATA[null]]></CREATED_GROUP>
+        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
+        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+    </AC_OAUTH_CLIENT>
+    <columnInfo dbtype="0">
+        <column name="ID" type="-5"/>
+        <column name="NAME" type="12"/>
+        <column name="CLIENT_ID" type="12"/>
+        <column name="SECRET_ID" type="12"/>
+        <column name="DESCRIPTION" type="12"/>
+        <column name="CREATED_DATE" type="93"/>
+        <column name="MODIFIED_BY" type="12"/>
+        <column name="MODIFIED_DATE" type="93"/>
+        <column name="APPLICATION" type="12"/>
+        <column name="CREATED_BY" type="12"/>
+        <column name="PROJECT_OWNER" type="12"/>
+        <column name="SCOPE" type="12"/>
+        <column name="CREATED_USER" type="12"/>
+        <column name="MODIFIED_USER" type="12"/>
+        <column name="CREATED_GROUP" type="12"/>
+        <column name="MODIFIED_GROUP" type="12"/>
+        <column name="REVISION" type="12"/>
+        <column name="SYNCHRONIZED" type="3"/>
+    </columnInfo>
+</data>
