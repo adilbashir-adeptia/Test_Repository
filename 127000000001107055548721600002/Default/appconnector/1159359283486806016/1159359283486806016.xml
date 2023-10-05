@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AC_CONNECTOR>
-        <CREATED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></CREATED_GROUP>
-        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
         <AC_LOGO><![CDATA[pic1.png]]></AC_LOGO>
-        <ID><![CDATA[1159359283486806016]]></ID>
-        <AC_NAME><![CDATA[zohocrmtest]]></AC_NAME>
-        <AC_DESCRIPTION><![CDATA[zohocrm_Test]]></AC_DESCRIPTION>
-        <REVISION><![CDATA[null]]></REVISION>
-        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
         <CREATION_DATE><![CDATA[2023-10-05T10:49:53]]></CREATION_DATE>
-        <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
-        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
-        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
-        <AC_INPUT_SPEC_FILENAME><![CDATA[zohocrm.yml]]></AC_INPUT_SPEC_FILENAME>
-        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
+        <MODIFIED_DATE><![CDATA[2023-10-05T10:49:53]]></MODIFIED_DATE>
         <AC_INPUT_SPEC><![CDATA[openapi: 3.0.0
 info:
   title: "Zoho CRM API"
@@ -188,10 +177,21 @@ x-adeptia-extensions:
     retryStrategies:
       'ConstantBackoff':
         backoffTimeInSeconds: 5]]></AC_INPUT_SPEC>
+        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
+        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
+        <ID><![CDATA[1159359283486806016]]></ID>
+        <AC_INPUT_SPEC_FILENAME><![CDATA[zohocrm.yml]]></AC_INPUT_SPEC_FILENAME>
+        <AC_DESCRIPTION><![CDATA[zohocrm_Test]]></AC_DESCRIPTION>
         <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
+        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
+        <CREATED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></CREATED_GROUP>
+        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <SYNCHRONIZED><![CDATA[false]]></SYNCHRONIZED>
         <AC_DISPLAY_NAME><![CDATA[zohocrm_Test]]></AC_DISPLAY_NAME>
-        <MODIFIED_DATE><![CDATA[2023-10-05T10:49:53]]></MODIFIED_DATE>
-        <SYNCHRONIZED><![CDATA[null]]></SYNCHRONIZED>
+        <AC_NAME><![CDATA[zohocrmtest]]></AC_NAME>
+        <REVISION><![CDATA[null]]></REVISION>
+        <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
     </AC_CONNECTOR>
     <columnInfo dbtype="0">
         <column name="ID" type="-5"/>
