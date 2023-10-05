@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AC_CONNECTOR>
-        <REVISION><![CDATA[null]]></REVISION>
-        <MODIFIED_DATE><![CDATA[2023-10-05T10:49:53]]></MODIFIED_DATE>
-        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
-        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
-        <AC_INPUT_SPEC_FILENAME><![CDATA[zohocrm.yml]]></AC_INPUT_SPEC_FILENAME>
-        <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
-        <AC_DESCRIPTION><![CDATA[zohocrm_Test]]></AC_DESCRIPTION>
-        <CREATION_DATE><![CDATA[2023-10-05T10:49:53]]></CREATION_DATE>
-        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
         <AC_INPUT_SPEC><![CDATA[openapi: 3.0.0
 info:
   title: "Zoho CRM API"
@@ -183,15 +175,23 @@ x-adeptia-extensions:
     retryStrategies:
       'ConstantBackoff':
         backoffTimeInSeconds: 5]]></AC_INPUT_SPEC>
-        <AC_NAME><![CDATA[zohocrmtest]]></AC_NAME>
-        <AC_DISPLAY_NAME><![CDATA[zohocrm_Test]]></AC_DISPLAY_NAME>
-        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
-        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
-        <ID><![CDATA[1159359283486806016]]></ID>
-        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
-        <SYNCHRONIZED><![CDATA[false]]></SYNCHRONIZED>
-        <AC_LOGO><![CDATA[pic1.png]]></AC_LOGO>
         <CREATED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></CREATED_GROUP>
+        <ID><![CDATA[1159359283486806016]]></ID>
+        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
+        <AC_INPUT_SPEC_FILENAME><![CDATA[zohocrm.yml]]></AC_INPUT_SPEC_FILENAME>
+        <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
+        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <AC_NAME><![CDATA[zohocrmtest]]></AC_NAME>
+        <REVISION><![CDATA[null]]></REVISION>
+        <AC_DESCRIPTION><![CDATA[zohocrm_Test]]></AC_DESCRIPTION>
+        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
+        <CREATION_DATE><![CDATA[2023-10-05T10:49:53]]></CREATION_DATE>
+        <AC_LOGO><![CDATA[pic1.png]]></AC_LOGO>
+        <SYNCHRONIZED><![CDATA[false]]></SYNCHRONIZED>
+        <AC_DISPLAY_NAME><![CDATA[zohocrm_Test]]></AC_DISPLAY_NAME>
+        <MODIFIED_DATE><![CDATA[2023-10-05T10:49:53]]></MODIFIED_DATE>
+        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
     </AC_CONNECTOR>
     <columnInfo dbtype="0">
         <column name="ID" type="-5"/>
