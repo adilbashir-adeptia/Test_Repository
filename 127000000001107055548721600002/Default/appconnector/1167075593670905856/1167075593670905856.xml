@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AC_CONNECTOR>
+        <AC_INPUT_SPEC_FILENAME><![CDATA[zendesk.yml]]></AC_INPUT_SPEC_FILENAME>
+        <ID><![CDATA[1167075593670905856]]></ID>
+        <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
+        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
+        <AC_INPUT_SPEC><![CDATA[openapi: 3.0.0
+info:
+  title: 'Zendesk API'
+  description: 'OpenAPI specification for Zendesk'
+  version: '1.0'
+  x-adeptia-helpLink: 'https://developer.zendesk.com/api-reference/'
+servers:
+  - url: 'https://{subDomain}.zendesk.com/api/v2'
+    description: 'Zendesk'
+    x-adeptia-parameters:
+      - name: 'subDomain'
+        visible: false
+        fetchFrom: account
+        paramName: 'subDomain'
+security:
+  - 'OAuth2':
+      - 'read write'
+  - 'Basic': []
+  - 'apiKey': []
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://{subDomain}.zendesk.com/oauth/authorizations/new'
+          tokenUrl: 'https://{subDomain}.zendesk.com/oauth/tokens'
+          scopes:
+            'read write': 'Zendesk Scope'
+    Basic:
+      type: http
+      scheme: Basic
+    apiKey:
+      type: apiKey
+      in: 'header'
+      name: 'Authorization'
+      x-adeptia-Auth:
+        authTokenPrefix: 'Basic '
+  schemas:
+    AllTicketsSchema:
+      type: object
+      properties:
+        tickets:
+          type: object
+          required:
+            - requester_id
+          properties:
+            id:
+              type: integer
+              description: 'Automatically assigned when the ticket is created.'
+            type:
+              type: string
+              description: 'The type of this ticket. Allowed values are "problem", "incident", "question", or "task".'
+            description:
+              type: string
+              readOnly: true
+              description: 'Read-only first comment on the ticket. When creating a ticket, use comment to set the description.'
+            priority:
+              type: string
+              description: 'The urgency with which the ticket should be addressed. Allowed values are "urgent", "high", "normal", or "low".'
+            status:
+              type: string
+              description: "The state of the ticket. If your account has activated custom ticket statuses, this is the ticket's status category.Allowed values are new, open, pending, hold, solved, or closed."
+            requester_id:
+              type: integer
+              description: 'The user who requested this ticket.'
+            assignee_id:
+              type: integer
+              description: 'The agent currently assigned to the ticket.'
+            allow_attachments:
+              type: boolean
+              readOnly: true
+              description: 'Permission for agents to add add attachments to a comment. Defaults to true.'
+            allow_channelback:
+              type: boolean
+              readOnly: true
+              description: 'Is false if channelback is disabled, true otherwise. Only applicable for channels framework ticket.'
+            assignee_email:
+              type: string
+              description: 'Write only. The email address of the agent to assign the ticket to.'
+            brand_id:
+              type: integer
+              description: 'Enterprise only. The id of the brand this ticket is associated with.'
+            created_at:
+              type: string
+              readOnly: true
+              description: 'When this record was created.'
+            custom_status_id:
+              type: integer
+              description: 'The custom ticket status id of the ticket.'
+            due_at:
+              type: string
+              description: 'If this is a ticket of type "task" it has a due date. Due date format uses ISO 8601 format.'
+            external_id:
+              type: string
+              description: 'An id you can use to link Zendesk Support tickets to local records.'
+            forum_topic_id:
+              type: integer
+              readOnly: true
+              description: 'The topic in the Zendesk Web portal this ticket originated from, if any. The Web portal is deprecated.'
+            from_messaging_channel:
+              type: boolean
+              readOnly: true
+              description: "If true, the ticket's via type is a messaging channel."
+            group_id:
+              type: integer
+              description: 'The group this ticket is assigned to.'
+            has_incidents:
+              type: boolean
+              readOnly: true
+              description: 'Is true if a ticket is a problem type and has one or more incidents linked to it. Otherwise, the value is false.'
+            is_public:
+              type: boolean
+              readOnly: true
+              description: 'Is true if any comments are public, false otherwise.'
+            macro_id:
+              type: integer
+              description: 'Write only. A macro ID to be recorded in the ticket audit.'
+            organization_id:
+              type: integer
+              description: 'The organization of the requester. You can only specify the ID of an organization associated with the requester.'
+            problem_id:
+              type: integer
+              description: 'For tickets of type "incident", the ID of the problem the incident is linked to.'
+            raw_subject:
+              type: string
+              description: 'The dynamic content placeholder, if present, or the "subject" value, if not.'
+            recipient:
+              type: string
+              description: 'The original recipient e-mail address of the ticket. Notification emails for the ticket are sent from this address.'
+            safe_update:
+              type: boolean
+              description: 'Write only. Optional boolean. When true and an update_stamp date is included, protects against ticket update collisions and returns a message to let you know if one occurs.'
+            subject:
+              type: string
+              description: 'The value of the subject field for this ticket.'
+            submitter_id:
+              type: integer
+              description: 'The user who submitted the ticket. The submitter always becomes the author of the first comment on the ticket.'
+            ticket_form_id:
+              type: integer
+              description: 'Enterprise only. The id of the ticket form to render for the ticket.'
+            updated_at:
+              type: string
+              readOnly: true
+              description: 'When this record last got updated.'
+            updated_stamp:
+              type: string
+              description: 'Write only. Datetime of last update received from API. See the safe_update property.'
+            url:
+              type: string
+              readOnly: true
+              description: 'The API url of this ticket.'
+            via_followup_source_id:
+              type: integer
+              description: 'POST requests only. The id of a closed ticket when creating a follow-up ticket.'
+            via_id:
+              type: integer
+              description: 'Write only.'
+paths:
+  /tickets:
+    get:
+      tags:
+        - Tickets
+      summary: 'Ticket Forms'
+      description: 'Retrieves the ticket forms Objects.'
+      externalDocs:
+        url: 'https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/'
+        x-adeptia-help:
+          text: 'Help'
+      x-adeptia-trigger:
+        'AllTickets':
+          summary: 'All Tickets'
+          description: 'All Tickets List.'
+          entityName: 'Tickets'
+          recordXpath: 'tickets'
+          schemaWrapperXpath: 'TicketsResponse'
+      responses:
+        '200':
+          description: 'Denotes a successful response.'
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/AllTicketsSchema'
+x-adeptia-extensions:
+  testTrigger: AllTickets
+  dateFormat: yyyy-MM-dd'T'HH:mm:ss'Z'
+  timeZone: GMT
+  externalDocs:
+    url: 'https://developer.zendesk.com'
+    x-adeptia-help:
+      text: 'Help'
+  accountParameters:
+    - name: 'subDomain'
+      label: "Sub Domain Name"
+      description: "Enter sub domain name for Zendesk."
+      visible: true
+  incrementalData:
+    'QueryExpression':
+      name: query
+      injectAs: query
+      appendToExisting: true
+      ValueExpression: ' WHERE {CursorField} >= {PreviousTimeStamp} AND {CursorField} <= {CurrentTimeStamp}'
+  pagination:
+    'CursorPagination':
+      pageSize: 100
+      pageSizeOption:
+        name: 'page[size]'
+        injectAs: 'query'
+      cursorInfo:
+        fetchFrom: body
+        nextPagePath: $['links']['next']'
+        urlType: absolute
+        stopConditionPath: $['meta']['has_more']
+        stopConditionValue: 'false'
+  errorHandler:
+    maxRetries: 5
+    responseFilter:
+      - statusCode: [429]
+        action: RETRY
+        retryStrategy: 'ConstantBackoff'
+    retryStrategies:
+      'ConstantBackoff':
+        backoffTimeInSeconds: 5]]></AC_INPUT_SPEC>
+        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
+        <AC_DESCRIPTION><![CDATA[zen_test]]></AC_DESCRIPTION>
+        <AC_DISPLAY_NAME><![CDATA[zen_test]]></AC_DISPLAY_NAME>
+        <CREATION_DATE><![CDATA[2023-10-26T17:51:45]]></CREATION_DATE>
+        <AC_NAME><![CDATA[zentest]]></AC_NAME>
+        <REVISION><![CDATA[null]]></REVISION>
+        <SYNCHRONIZED><![CDATA[null]]></SYNCHRONIZED>
+        <MODIFIED_DATE><![CDATA[2023-10-26T17:51:45]]></MODIFIED_DATE>
+        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
+        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
+        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <CREATED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></CREATED_GROUP>
+        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <AC_LOGO><![CDATA[quickbooks.png]]></AC_LOGO>
+    </AC_CONNECTOR>
+    <columnInfo dbtype="0">
+        <column name="ID" type="-5"/>
+        <column name="AC_DISPLAY_NAME" type="12"/>
+        <column name="AC_NAME" type="12"/>
+        <column name="AC_DESCRIPTION" type="12"/>
+        <column name="AC_ACTIVE" type="-7"/>
+        <column name="AC_LOGO" type="12"/>
+        <column name="AC_INPUT_SPEC" type="-1"/>
+        <column name="CREATION_DATE" type="93"/>
+        <column name="CREATED_BY" type="12"/>
+        <column name="MODIFIED_DATE" type="93"/>
+        <column name="MODIFIED_BY" type="12"/>
+        <column name="AC_INPUT_SPEC_FILENAME" type="12"/>
+        <column name="PROJECT_OWNER" type="12"/>
+        <column name="REVISION" type="12"/>
+        <column name="SYNCHRONIZED" type="-7"/>
+        <column name="CREATED_USER" type="12"/>
+        <column name="CREATED_GROUP" type="12"/>
+        <column name="MODIFIED_USER" type="12"/>
+        <column name="MODIFIED_GROUP" type="12"/>
+    </columnInfo>
+</data>
