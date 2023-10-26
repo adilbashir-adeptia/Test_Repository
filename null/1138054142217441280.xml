@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AC_CONNECTOR>
-        <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
-        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <AC_DESCRIPTION><![CDATA[zen4]]></AC_DESCRIPTION>
         <AC_LOGO><![CDATA[deployment assemply.png]]></AC_LOGO>
-        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
-        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
-        <CREATED_GROUP><![CDATA[null]]></CREATED_GROUP>
-        <ID><![CDATA[1138054142217441280]]></ID>
-        <REVISION><![CDATA[d41f6675d98eea5eb5fc48473f1fd89f53ff6095]]></REVISION>
-        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
-        <AC_NAME><![CDATA[zen]]></AC_NAME>
-        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
-        <AC_DESCRIPTION><![CDATA[zen3]]></AC_DESCRIPTION>
-        <AC_INPUT_SPEC_FILENAME><![CDATA[zendesk.yml]]></AC_INPUT_SPEC_FILENAME>
         <CREATED_USER><![CDATA[null]]></CREATED_USER>
-        <CREATION_DATE><![CDATA[2023-08-07T15:50:52]]></CREATION_DATE>
+        <AC_DISPLAY_NAME><![CDATA[zen]]></AC_DISPLAY_NAME>
+        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
+        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
+        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
+        <REVISION><![CDATA[3928840907431803c99aa7584fdee68db58b3c58]]></REVISION>
+        <AC_INPUT_SPEC_FILENAME><![CDATA[zendesk.yml]]></AC_INPUT_SPEC_FILENAME>
+        <CREATED_GROUP><![CDATA[null]]></CREATED_GROUP>
         <AC_INPUT_SPEC><![CDATA[openapi: 3.0.0
 info:
   title: 'Zendesk API'
@@ -138,9 +133,14 @@ x-adeptia-extensions:
     retryStrategies:
       'ConstantBackoff':
         backoffTimeInSeconds: 5]]></AC_INPUT_SPEC>
+        <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
+        <CREATION_DATE><![CDATA[2023-08-07T15:50:52]]></CREATION_DATE>
+        <AC_NAME><![CDATA[zen]]></AC_NAME>
         <SYNCHRONIZED><![CDATA[false]]></SYNCHRONIZED>
-        <MODIFIED_DATE><![CDATA[2023-10-26T17:37:25]]></MODIFIED_DATE>
-        <AC_DISPLAY_NAME><![CDATA[zen]]></AC_DISPLAY_NAME>
+        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <MODIFIED_DATE><![CDATA[2023-10-26T17:38:40]]></MODIFIED_DATE>
+        <ID><![CDATA[1138054142217441280]]></ID>
     </AC_CONNECTOR>
     <columnInfo dbtype="0">
         <column name="ID" type="-5"/>
