@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AC_CONNECTOR>
+        <AC_NAME><![CDATA[zen]]></AC_NAME>
+        <SYNCHRONIZED><![CDATA[null]]></SYNCHRONIZED>
+        <ID><![CDATA[1138054142217441280]]></ID>
+        <PROJECT_OWNER><![CDATA[null]]></PROJECT_OWNER>
+        <CREATED_GROUP><![CDATA[null]]></CREATED_GROUP>
+        <MODIFIED_DATE><![CDATA[2023-08-10T15:15:15]]></MODIFIED_DATE>
+        <CREATION_DATE><![CDATA[2023-08-07T15:50:52]]></CREATION_DATE>
+        <AC_LOGO><![CDATA[deployment assemply.png]]></AC_LOGO>
+        <AC_DISPLAY_NAME><![CDATA[zen]]></AC_DISPLAY_NAME>
+        <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
+        <CREATED_USER><![CDATA[null]]></CREATED_USER>
+        <AC_DESCRIPTION><![CDATA[zen]]></AC_DESCRIPTION>
+        <MODIFIED_GROUP><![CDATA[null]]></MODIFIED_GROUP>
+        <AC_INPUT_SPEC_FILENAME><![CDATA[zendesk.yml]]></AC_INPUT_SPEC_FILENAME>
+        <REVISION><![CDATA[null]]></REVISION>
+        <AC_INPUT_SPEC><![CDATA[openapi: 3.0.0
+info:
+  title: 'Zendesk API'
+  description: 'OpenAPI specification for Zendesk'
+  version: '1.0'
+  x-adeptia-helpLink: 'https://developer.zendesk.com'
+servers:
+  - url: 'https://{subDomain}.zendesk.com/api/v2'
+    description: 'Zendesk'
+    x-adeptia-parameters:
+      - name: 'subDomain'
+        visible: false
+        fetchFrom: account
+        paramName: 'subDomain'
+security:
+  - 'OAuth2':
+      - 'read write'
+  - 'Basic': []
+  - 'apiKey': []
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://{subDomain}.zendesk.com/oauth/authorizations/new'
+          tokenUrl: 'https://{subDomain}.zendesk.com/oauth/tokens'
+          scopes:
+            'read write': 'Zendesk Scope'
+    Basic:
+      type: http
+      scheme: Basic
+    apiKey:
+      type: apiKey
+      in: 'header'
+      name: 'Authorization'
+      x-adeptia-Auth:
+        authTokenPrefix: 'Basic '
+  schemas:
+    AllTicketsSchema:
+      type: object
+      properties:
+        tickets:
+          type: object
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+            description:
+              type: string
+            priority:
+              type: string
+            status:
+              type: string
+            requester_id:
+              type: string
+            assignee_id:
+              type: string
+paths:
+  /tickets:
+    get:
+      tags:
+        - Tickets
+      summary: 'Ticket Forms'
+      description: 'Retrieves the ticket forms Objects.'
+      x-adeptia-help:
+        link: 'https://developer.zendesk.com'
+        text: 'Help'
+      x-adeptia-trigger:
+        'AllTickets':
+          summary: 'All Tickets'
+          description: 'All Tickets List.'
+          entityName: 'Tickets'
+          recordXpath: 'tickets'
+          schemaWrapperXpath: 'TicketsResponse'
+      responses:
+        '200':
+          description: 'Denotes a successful response.'
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/AllTicketsSchema'
+x-adeptia-extensions:
+  testTrigger: AllTickets
+  dateFormat: yyyy-MM-dd'T'HH:mm:ss'Z'
+  timeZone: GMT
+  help:
+    link: 'https://developer.zendesk.com'
+    text: 'Help'
+  accountParameters:
+    - name: 'subDomain'
+      label: "Sub Domain Name"
+      description: "Enter sub domain name for Zendesk."
+      visible: true
+  incrementalData:
+    'QueryExpression':
+      name: query
+      injectAs: query
+      appendToExisting: true
+      ValueExpression: ' WHERE {CursorField} >= {PreviousTimeStamp} AND {CursorField} <= {CurrentTimeStamp}'
+  pagination:
+    'CursorPagination':
+      pageSize: 100
+      pageSizeOption:
+        name: 'page[size]'
+        injectAs: 'query'
+      cursorInfo:
+        fetchFrom: body
+        nextPagePath: $['links']['next']'
+        urlType: absolute
+        stopConditionPath: $['meta']['has_more']
+        stopConditionValue: 'false'
+  errorHandler:
+    maxRetries: 5
+    responseFilter:
+      - statusCode: [429]
+        action: RETRY
+        retryStrategy: 'ConstantBackoff'
+    retryStrategies:
+      'ConstantBackoff':
+        backoffTimeInSeconds: 5]]></AC_INPUT_SPEC>
+        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
+        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <MODIFIED_USER><![CDATA[null]]></MODIFIED_USER>
+    </AC_CONNECTOR>
+    <columnInfo dbtype="0">
+        <column name="ID" type="-5"/>
+        <column name="AC_DISPLAY_NAME" type="12"/>
+        <column name="AC_NAME" type="12"/>
+        <column name="AC_DESCRIPTION" type="12"/>
+        <column name="AC_ACTIVE" type="-7"/>
+        <column name="AC_LOGO" type="12"/>
+        <column name="AC_INPUT_SPEC" type="-1"/>
+        <column name="CREATION_DATE" type="93"/>
+        <column name="CREATED_BY" type="12"/>
+        <column name="MODIFIED_DATE" type="93"/>
+        <column name="MODIFIED_BY" type="12"/>
+        <column name="AC_INPUT_SPEC_FILENAME" type="12"/>
+        <column name="PROJECT_OWNER" type="12"/>
+        <column name="REVISION" type="12"/>
+        <column name="SYNCHRONIZED" type="-7"/>
+        <column name="CREATED_USER" type="12"/>
+        <column name="CREATED_GROUP" type="12"/>
+        <column name="MODIFIED_USER" type="12"/>
+        <column name="MODIFIED_GROUP" type="12"/>
+    </columnInfo>
+</data>
