@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AC_CONNECTOR>
-        <AC_INPUT_SPEC_FILENAME><![CDATA[zendesk.yml]]></AC_INPUT_SPEC_FILENAME>
-        <ID><![CDATA[1167075593670905856]]></ID>
         <AC_ACTIVE><![CDATA[false]]></AC_ACTIVE>
-        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
+        <SYNCHRONIZED><![CDATA[false]]></SYNCHRONIZED>
         <AC_INPUT_SPEC><![CDATA[openapi: 3.0.0
 info:
   title: 'Zendesk API'
@@ -229,20 +227,22 @@ x-adeptia-extensions:
     retryStrategies:
       'ConstantBackoff':
         backoffTimeInSeconds: 5]]></AC_INPUT_SPEC>
-        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
-        <AC_DESCRIPTION><![CDATA[zen_test]]></AC_DESCRIPTION>
-        <AC_DISPLAY_NAME><![CDATA[zen_test]]></AC_DISPLAY_NAME>
+        <AC_DESCRIPTION><![CDATA[zen_test_v2]]></AC_DESCRIPTION>
         <CREATION_DATE><![CDATA[2023-10-26T17:51:45]]></CREATION_DATE>
-        <AC_NAME><![CDATA[zentest]]></AC_NAME>
-        <REVISION><![CDATA[null]]></REVISION>
-        <SYNCHRONIZED><![CDATA[null]]></SYNCHRONIZED>
-        <MODIFIED_DATE><![CDATA[2023-10-26T17:51:45]]></MODIFIED_DATE>
-        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
+        <ID><![CDATA[1167075593670905856]]></ID>
         <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
+        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
+        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
+        <MODIFIED_DATE><![CDATA[2023-10-26T17:52:30]]></MODIFIED_DATE>
+        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
         <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
         <CREATED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></CREATED_GROUP>
-        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <AC_NAME><![CDATA[zentest]]></AC_NAME>
+        <AC_DISPLAY_NAME><![CDATA[zen_test]]></AC_DISPLAY_NAME>
+        <REVISION><![CDATA[b78269aac5b9f27fe2b208e6c72f1c0b70c3f219]]></REVISION>
         <AC_LOGO><![CDATA[quickbooks.png]]></AC_LOGO>
+        <AC_INPUT_SPEC_FILENAME><![CDATA[zendesk.yml]]></AC_INPUT_SPEC_FILENAME>
     </AC_CONNECTOR>
     <columnInfo dbtype="0">
         <column name="ID" type="-5"/>
