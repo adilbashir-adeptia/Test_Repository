@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AC_CONNECTOR>
+        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <AC_LOGO><![CDATA[Untitled.png]]></AC_LOGO>
+        <CREATED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></CREATED_GROUP>
+        <REVISION><![CDATA[null]]></REVISION>
+        <AC_DISPLAY_NAME><![CDATA[QB]]></AC_DISPLAY_NAME>
+        <MODIFIED_DATE><![CDATA[2024-02-07T14:43:06]]></MODIFIED_DATE>
+        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <AC_ACTIVE><![CDATA[0]]></AC_ACTIVE>
+        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
+        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
+        <SYNCHRONIZED><![CDATA[null]]></SYNCHRONIZED>
+        <AC_INPUT_SPEC_FILENAME><![CDATA[quickbooks.yml]]></AC_INPUT_SPEC_FILENAME>
+        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
+        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
+        <CREATION_DATE><![CDATA[2024-02-07T14:43:06]]></CREATION_DATE>
+        <AC_DESCRIPTION><![CDATA[QB]]></AC_DESCRIPTION>
+        <ID><![CDATA[1204716458568339456]]></ID>
+        <AC_NAME><![CDATA[qb]]></AC_NAME>
+        <PRE_BUILT><![CDATA[null]]></PRE_BUILT>
+    </AC_CONNECTOR>
+    <columnInfo dbtype="0">
+        <column name="ID" type="-5"/>
+        <column name="AC_DISPLAY_NAME" type="12"/>
+        <column name="AC_NAME" type="12"/>
+        <column name="AC_DESCRIPTION" type="12"/>
+        <column name="AC_ACTIVE" type="3"/>
+        <column name="AC_LOGO" type="12"/>
+        <column name="CREATION_DATE" type="93"/>
+        <column name="CREATED_BY" type="12"/>
+        <column name="MODIFIED_DATE" type="93"/>
+        <column name="MODIFIED_BY" type="12"/>
+        <column name="PROJECT_OWNER" type="12"/>
+        <column name="AC_INPUT_SPEC_FILENAME" type="12"/>
+        <column name="CREATED_USER" type="12"/>
+        <column name="MODIFIED_USER" type="12"/>
+        <column name="CREATED_GROUP" type="12"/>
+        <column name="MODIFIED_GROUP" type="12"/>
+        <column name="REVISION" type="12"/>
+        <column name="SYNCHRONIZED" type="3"/>
+        <column name="PRE_BUILT" type="3"/>
+    </columnInfo>
+</data>
