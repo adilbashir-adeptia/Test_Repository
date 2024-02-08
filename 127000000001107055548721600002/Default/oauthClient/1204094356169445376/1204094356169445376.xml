@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AC_OAUTH_CLIENT>
+        <PROJECT_OWNER><![CDATA[Default]]></PROJECT_OWNER>
+        <CLIENT_ID><![CDATA[ABQfQutp2bNiuYdObsLHioxBav7wiUTqObUumzBjE5LAPq6mhi]]></CLIENT_ID>
+        <MODIFIED_DATE><![CDATA[2024-02-07T17:03:48]]></MODIFIED_DATE>
+        <MODIFIED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></MODIFIED_USER>
+        <SECRET_ID><![CDATA[TBJ2xVhZSrBFU7NU9nkgdVFG2OVC81ak8UfaXJW4]]></SECRET_ID>
+        <CREATED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></CREATED_GROUP>
+        <CREATED_DATE><![CDATA[2024-02-05T21:31:06]]></CREATED_DATE>
+        <APPLICATION><![CDATA[connector:1194598620975882240]]></APPLICATION>
+        <MODIFIED_BY><![CDATA[Admin User]]></MODIFIED_BY>
+        <NAME><![CDATA[QB_oauthClientr]]></NAME>
+        <CREATED_USER><![CDATA[IndigoUser:127000000001107055536473900001]]></CREATED_USER>
+        <MODIFIED_GROUP><![CDATA[IndigoGroup:127000000001107055548721600002]]></MODIFIED_GROUP>
+        <REVISION><![CDATA[null]]></REVISION>
+        <CREATED_BY><![CDATA[Admin User]]></CREATED_BY>
+        <SCOPE><![CDATA[]]></SCOPE>
+        <SYNCHRONIZED><![CDATA[0]]></SYNCHRONIZED>
+        <ID><![CDATA[1204094356169445376]]></ID>
+        <DESCRIPTION><![CDATA[QB_oauthClientr]]></DESCRIPTION>
+    </AC_OAUTH_CLIENT>
+    <columnInfo dbtype="0">
+        <column name="ID" type="-5"/>
+        <column name="NAME" type="12"/>
+        <column name="DESCRIPTION" type="12"/>
+        <column name="CLIENT_ID" type="12"/>
+        <column name="SECRET_ID" type="12"/>
+        <column name="MODIFIED_BY" type="12"/>
+        <column name="MODIFIED_DATE" type="93"/>
+        <column name="CREATED_BY" type="12"/>
+        <column name="CREATED_DATE" type="93"/>
+        <column name="APPLICATION" type="12"/>
+        <column name="PROJECT_OWNER" type="12"/>
+        <column name="SCOPE" type="12"/>
+        <column name="CREATED_USER" type="12"/>
+        <column name="MODIFIED_USER" type="12"/>
+        <column name="CREATED_GROUP" type="12"/>
+        <column name="MODIFIED_GROUP" type="12"/>
+        <column name="REVISION" type="12"/>
+        <column name="SYNCHRONIZED" type="3"/>
+    </columnInfo>
+</data>
